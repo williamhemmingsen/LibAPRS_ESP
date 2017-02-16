@@ -11,8 +11,14 @@ DAC TLC5615
 Pinout:
 
 D8 - CS MCP3008 (ADC)
+
 D7 - MOSI
+
 D6 - MISO
+
 D5 - SCK
+
 D4 - PTT To 2N7002
+
 D3 - CS TLC5615 (DAC)
+
