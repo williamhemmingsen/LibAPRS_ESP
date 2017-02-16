@@ -2,7 +2,6 @@
 #include <string.h>
 #include "AFSK.h"
 #include "Arduino.h" 
-#include "TLC5615.h"
 #include <Wire.h>
 #include <SPI.h>
  
