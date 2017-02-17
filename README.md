@@ -1,7 +1,9 @@
 # LibAPRS_ESP
 Fork of LibAPRS for the ESP8266
 
-The example is set up a simple KISS TNC.  To run in Simple Serial mode change Boolean KISS to false.
+The example is set up as a simple KISS TNC.  The example also sends a message packet every 150 secs using simpletimer library.  
+
+
 
 
 This library uses external SPI ADC and DAC
