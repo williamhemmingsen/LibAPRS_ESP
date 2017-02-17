@@ -1,8 +1,9 @@
 # LibAPRS_ESP
 Fork of LibAPRS for the ESP8266
 
-1st example is set up as a simple KISS TNC.  The example also sends a message packet every 150 secs using simpletimer library. 
-2st example IGATES any decoded packet to APRS.IS via wifi
+1st example is set up as a simple KISS TNC.  The example also sends a message packet every 150 secs using simpletimer library.
+
+2nd example IGATES any decoded packet to APRS.IS via wifi
 
 
 This library uses external SPI ADC and DAC
