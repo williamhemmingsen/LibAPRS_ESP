@@ -147,7 +147,7 @@ void loop() {
     kiss_serial(Serial.read());
   }
 
-  if (client.available()) {     // If anything comes in Serial1 (pins 0 & 1)
+  if (client.available()) {     // If anything comes from APRS.IS
     Serial.write(client.read());   // read it and send it out Serial (USB)
   }
   processPacket();
