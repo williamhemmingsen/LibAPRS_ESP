@@ -70,7 +70,7 @@ void setup() {
   } else {
     Serial.println(F("Connected to APRS.IS"));
     delay(1000);
-    client.print("user W4WHL-3 pass 16286 vers Arduino_Igate 0.1 \r\n");
+    client.print("user NOCALL pass YOURCODE vers YOUR VERSION \r\n");\\ Your CAll, APRS.IS code, and version comment
   }
 
   APRS_init();
