@@ -46,7 +46,7 @@ void processPacket() {
   if (gotPacket) {
     gotPacket = false;
     if (KISS) {
-      kiss_wrapper();
+      kiss_wrapper(); // Process KISS Packets from radio and send to Serial
     }
     else {
       Serial.println("");
@@ -70,15 +70,15 @@ void processPacket() {
   }
 }
 
-boolean whichExample = false;
+
 void loop() {
 
 
-  if (Serial.available() && KISS) {      // If anything comes in Serial (USB),
+  if (Serial.available() && KISS) {      // Process serial KISS messages from client and send to radio
     kiss_serial(Serial.read());
   }
   processPacket();
-  timer.run();
+  timer.run();  // Send a test message every 150 sec
   ESP.wdtFeed();
 }
 
