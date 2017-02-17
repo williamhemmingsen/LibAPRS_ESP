@@ -4,8 +4,8 @@
 #include <SimpleTimer.h>
 #include <KISS.h>
 
-const char* ssid     = "HemmiNet-old";
-const char* password = "cihadp2962";
+const char* ssid     = "xxxxxxx";
+const char* password = "xxxxxxx";
 
 
 WiFiClient client;
@@ -74,7 +74,7 @@ void setup() {
   }
 
   APRS_init();
-  APRS_setCallsign("W4WHL", 4);
+  APRS_setCallsign("NOCALL", 1); ///Your call
   APRS_setPath1("WIDE1", 1);
   APRS_setPath2("WIDE2", 2);
   APRS_setPreamble(450);
@@ -121,7 +121,7 @@ void processPacket() {
         itoa (incomingPacket.rpt_list[i].ssid, rssid, 10);
         strcat (packetchar, rssid);
       }
-      strcat (packetchar, ",qAR,W4WHL-4:");
+      strcat (packetchar, ",qAR,NOCALL-1:"); /// Your call and SSID
       strcat (packetchar, datapayload);
       //strcat (packetchar, lf);
 
