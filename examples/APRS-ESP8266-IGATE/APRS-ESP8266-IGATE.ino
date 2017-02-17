@@ -37,6 +37,7 @@ void aprs_msg_callback(struct AX25Msg *msg) {
       gotPacket = false;
     }
   }
+  
 }
 
 
