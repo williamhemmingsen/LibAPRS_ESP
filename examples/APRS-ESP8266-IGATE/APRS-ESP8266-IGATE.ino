@@ -1,3 +1,12 @@
+
+/*
+ * THIS EXAMPLE IGATE SHOULD NOT BE RUN ON THE APRS-IS BEFORE
+ * IT IS COMPLETED AND BUGS ARE FIXED. IT IS CURRENTLY
+ * CORRUPTING PACKETS AND RUNNING IT MAKES THE APRS NETWORK WORSE.
+ *
+ * https://github.com/williamhemmingsen/LibAPRS_ESP/issues/3
+ */
+
 #include <ESP8266WiFi.h>
 #include <LibAPRSesp.h>
 #include <limits.h>
@@ -123,15 +132,22 @@ void processPacket() {
         strcat (packetchar, rssid);
       }
       strcat (packetchar, ",qAR,NOCALL-1:"); /// Your call and SSID
+      /* BUG #3 here: string function stops copying on the first NUL byte */
       strcat (packetchar, datapayload);
       //strcat (packetchar, lf);
 
+      /* BUG #3: println stops writing on the first NUL byte */
       Serial.println(packetchar);
 
-      if (!tcpippacket) {
-        //Don't IGATE TCPIP repeaded packets
-        client.println(packetchar);
-        client.println();
+      //Don't IGATE TCPIP repeaded packets
+      if (0 && !tcpippacket) {
+        /* BUG #3 present here too: println stops writing on the first
+         * NUL byte. Do not run this before fixing and testing on packets
+         * with NUL bytes. They exist and this code corrupts the packets
+         * further.
+         */
+        //client.println(packetchar);
+        //client.println();
       }
     }
     free(packetData);
